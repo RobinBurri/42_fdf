@@ -2,7 +2,7 @@ CC = gcc
 
 NAME = fdf
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 
 SRCS = ${wildcard *.c}
 
