@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 13:55:41 by rburri            #+#    #+#             */
-/*   Updated: 2021/12/17 13:51:35 by rburri           ###   ########.fr       */
+/*   Updated: 2021/12/17 15:02:48 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,4 +225,7 @@ char	*ft_strdupgnl(char *s1, int f);
 char	*ft_strjoingnl(char *s1, char const *s2);
 int		ft_strcmpgnl(const char *s1, const char *s2);
 char	*ft_substrgnl(char *s, unsigned int start, size_t len, int f);
+
+// Alocate a chunck of memory and put all bites to 0
+void	*ft_memalloc(size_t size);
 #endif

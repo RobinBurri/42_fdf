@@ -9,20 +9,23 @@
 # define WIDTH 1080
 # define HIGHT 1080
 # define TITLE "fdf"
+# define FDF_INIT_ERR "Fdf initialization error"
 
-typedef struct	s_vars {
+
+typedef struct	s_mlx
+{
 	void	*mlx;
 	void	*win;
-}				t_vars;
-
-typedef struct	s_data {
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}				t_data;
+}				t_mlx;
 
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
+int		key_hook(int keycode, t_mlx img);
+t_mlx	*fdf_init(void);
+void	send_err(char *s);
 #endif

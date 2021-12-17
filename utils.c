@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_mlx_pixel_put.c                                 :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/16 15:20:13 by rburri            #+#    #+#             */
-/*   Updated: 2021/12/17 14:52:24 by rburri           ###   ########.fr       */
+/*   Created: 2021/12/17 15:19:10 by rburri            #+#    #+#             */
+/*   Updated: 2021/12/17 15:31:13 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include <stdio.h>
+#include <errno.h>
 
-
-void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color)
+void	send_err(char *s)
 {
-	char	*dst;
-
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	if (errno == 0)
+		ft_putendl_fd(s, 2);
+	else
+		perror(s);
+	exit(1);
 }
