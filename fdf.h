@@ -9,7 +9,10 @@
 # define WIDTH 1080
 # define HIGHT 1080
 # define TITLE "fdf"
+
+//ERROR MESSAGES
 # define FDF_INIT_ERR "Fdf initialization error"
+# define OPEN_ERR "MAP_FILE ERROR"
 
 
 typedef struct	s_mlx
