@@ -6,12 +6,16 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 13:55:41 by rburri            #+#    #+#             */
-/*   Updated: 2021/11/09 11:51:39 by rburri           ###   ########.fr       */
+/*   Updated: 2021/12/17 13:51:35 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 
 # include <stddef.h>
 # include <stdlib.h>
@@ -213,4 +217,12 @@ char	*ft_strcat(char *dest, const char *src);
 le caractère nul (« \0 ») à la fin de dest,
 puis en ajoutant un nouveau caractère nul final.
 La chaîne dest doit être assez grande pour accueillir le résultat.*/
+
+// GET_NEXT_LINE
+
+char	*get_next_line(int fd);
+char	*ft_strdupgnl(char *s1, int f);
+char	*ft_strjoingnl(char *s1, char const *s2);
+int		ft_strcmpgnl(const char *s1, const char *s2);
+char	*ft_substrgnl(char *s, unsigned int start, size_t len, int f);
 #endif
