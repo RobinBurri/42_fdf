@@ -6,7 +6,7 @@
 #    By: rburri <rburri@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/25 13:29:27 by rburri            #+#    #+#              #
-#    Updated: 2022/01/03 11:05:37 by rburri           ###   ########.fr        #
+#    Updated: 2022/01/03 11:12:05 by rburri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,10 +41,11 @@ CC = gcc -c $(FLAGS)
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	ar rc libft.a $(OBJECTS)
+	@ar rc libft.a $(OBJECTS)
+	@echo "$(GREEN)$(NAME) sucessfully created$(RESET)"
 
 %.o: %.c
-	$(CC) $< -o $@ 
+	@$(CC) $< -o $@ 
 	
 clean:
 	@/bin/rm -f $(OBJECTS)
