@@ -6,11 +6,11 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 15:20:13 by rburri            #+#    #+#             */
-/*   Updated: 2021/12/17 14:52:24 by rburri           ###   ########.fr       */
+/*   Updated: 2022/01/03 07:48:36 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "../fdf.h"
 
 
 void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color)

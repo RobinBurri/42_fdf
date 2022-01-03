@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   key_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/17 15:19:10 by rburri            #+#    #+#             */
-/*   Updated: 2021/12/17 15:31:13 by rburri           ###   ########.fr       */
+/*   Created: 2021/12/17 14:30:20 by rburri            #+#    #+#             */
+/*   Updated: 2022/01/03 10:48:28 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-#include <stdio.h>
-#include <errno.h>
+#include "../fdf.h"
 
-void	send_err(char *s)
+int	key_hook(int keycode, t_mlx img)
 {
-	if (errno == 0)
-		ft_putendl_fd(s, 2);
-	else
-		perror(s);
-	exit(1);
+	if (keycode == 53)
+		mlx_destroy_window(img.mlx, img.win);
+	return (keycode);
 }
