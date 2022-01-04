@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_hook.c                                         :+:      :+:    :+:   */
+/*   mouse_hook.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/17 14:30:20 by rburri            #+#    #+#             */
-/*   Updated: 2022/01/04 08:00:48 by rburri           ###   ########.fr       */
+/*   Created: 2022/01/04 09:50:45 by rburri            #+#    #+#             */
+/*   Updated: 2022/01/04 09:51:50 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
-int	key_hook(int keycode, t_mlx img)
+int mouse_hook(int button, int x, int y, void *param)
 {
-	if (keycode == 53)
-		mlx_destroy_window(img.mlx, img.win);
-		return (0);
+	
 }

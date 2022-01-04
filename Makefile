@@ -6,7 +6,7 @@
 #    By: rburri <rburri@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/03 08:06:22 by rburri            #+#    #+#              #
-#    Updated: 2022/01/03 11:06:33 by rburri           ###   ########.fr        #
+#    Updated: 2022/01/04 09:52:34 by rburri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,9 @@ SOURCE =  $(SRC)/main.c\
 			$(SRC)/key_hook.c\
 			$(SRC)/my_mlx_pixel_put.c\
 			$(SRC)/utils.c\
+			$(SRC)/line.c\
+			$(SRC)/mouse_hook.c\
+			
 		
 OBJS = $(patsubst %,$(BIN)/%,$(notdir $(SOURCE:.c=.o)))
 
@@ -59,8 +62,6 @@ ${NAME}:	${OBJS}
 			cp ${MLX_DIR}/$(MLX_A) .
 			$(CC)  ${OBJS} $(LIBFT) $(MLX) -o $(NAME)
 			@echo "$(GREEN)$(NAME) sucessfully created$(RESET)"
-			@make -C ${LIBFT_DIR} fclean
-			@make -C ${MLX_DIR} clean
 
 clean:
 		@rm -f $(OBJS)
