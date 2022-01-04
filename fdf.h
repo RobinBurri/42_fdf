@@ -45,6 +45,8 @@ t_mlx	*fdf_init(void);
 void	send_err(char *s);
 int draw_line(t_mlx *fdf, int beginX, int beginY, int endX, int endY, int color);
 int draw_square(t_mlx *fdf, int beginX, int beginY, int length, int color);
+int draw_plain_square(t_mlx *fdf, int beginX, int beginY, int length, int color);
+int draw_triangle(t_mlx *fdf, int beginX, int beginY, int height, int color);
 int mouse_hook(int button, int x, int y, void *param);
 void my_pixel_put(t_mlx *fdf, int x, int y, int color);
 #endif

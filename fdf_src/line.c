@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 08:19:53 by rburri            #+#    #+#             */
-/*   Updated: 2022/01/04 11:05:56 by rburri           ###   ########.fr       */
+/*   Updated: 2022/01/04 11:56:09 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,53 @@ int draw_square(t_mlx *fdf, int beginX, int beginY, int length, int color)
 		pixelY++;
 		len--;
 	}
+	return (0);
+}
+int draw_plain_square(t_mlx *fdf, int beginX, int beginY, int length, int color)
+{
+	int alen;
+	int blen;
+	int pixelX;
+	int pixelY;
+	
+	pixelX = beginX;
+	pixelY = beginY;
+	alen = length;
+	
+	while (alen >= 0)
+	{
+		blen = length;
+		while (blen >= 0)
+		{
+			my_pixel_put(fdf, pixelX, pixelY, color);
+			pixelX++;
+			blen--;
+		}
+		pixelX = beginX;
+		pixelY++;
+		alen--;
+	}
+	return (0);
+}
+
+int draw_triangle(t_mlx *fdf, int beginX, int beginY, int height, int color)
+{
+	int alen;
+	int blen;
+	int pixelXS;
+	int pixelYS;
+	int pixelXE;
+	int pixelYE;
+	
+	pixelXS = beginX;
+	pixelYS = beginY;
+	pixelXE = beginX;
+	pixelYE = beginY;
+	alen = 0;
+	
+
+	draw_line(fdf, pixelXS, pixelYS, pixelXE/2, pixelYE/2, color);
+	draw_line(fdf, pixelXS, pixelYS, (pixelXE + (pixelXE/2)), (pixelYE + (pixelYE/2)), color);
+
 	return (0);
 }
