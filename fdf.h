@@ -7,8 +7,8 @@
 # include <math.h>
 # include <stdio.h>
 
-# define WIDTH 1080
-# define HIGHT 1080
+# define WIDTH 1000
+# define HIGHT 1000
 # define TITLE "fdf"
 
 # define TEXT_COLOR			0xEAEAEA
@@ -40,13 +40,13 @@ typedef struct	s_mlx
 
 
 void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
-int		key_hook(int keycode, t_mlx img);
+int	key_hook(int keycode, t_mlx *fdf);
 t_mlx	*fdf_init(void);
 void	send_err(char *s);
 int draw_line(t_mlx *fdf, int beginX, int beginY, int endX, int endY, int color);
 int draw_square(t_mlx *fdf, int beginX, int beginY, int length, int color);
 int draw_plain_square(t_mlx *fdf, int beginX, int beginY, int length, int color);
 int draw_triangle(t_mlx *fdf, int beginX, int beginY, int height, int color);
-int mouse_hook(int button, int x, int y, void *param);
+int mouse_hook(int button, int x, int y, t_mlx *fdf);
 void my_pixel_put(t_mlx *fdf, int x, int y, int color);
 #endif
