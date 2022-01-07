@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 13:55:41 by rburri            #+#    #+#             */
-/*   Updated: 2021/12/17 15:02:48 by rburri           ###   ########.fr       */
+/*   Updated: 2022/01/07 09:28:45 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,9 @@ int		ft_atoi(const char *str);
 /*ft_atoi() convertit la chaîne pointée par str en entier de type int */
 
 /*Fonctions supplémentaires*/
+int		ft_atoi_base(const char *str, int base);
+/*ft_atoi_base() convertit la chaîne pointée par str en entier de type int,
+suivant la base entree en parametre*/
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 /*Alloue (avec malloc(3)) et retourne une chaine de 
@@ -188,6 +191,8 @@ void	ft_putnbr_fd(int n, int fd);
 /*Écrit l’integer ’n’ sur le file descriptor donné.*/
 
 /*ADDED AFTER MOULINETTE*/
+int		ft_islower(int c);
+int		ft_isupper(int c);
 int		ft_isspace(int c);
 void	ft_putchar(char c);
 void	ft_putstr(char const *s);
@@ -217,15 +222,11 @@ char	*ft_strcat(char *dest, const char *src);
 le caractère nul (« \0 ») à la fin de dest,
 puis en ajoutant un nouveau caractère nul final.
 La chaîne dest doit être assez grande pour accueillir le résultat.*/
-
 // GET_NEXT_LINE
-
 char	*get_next_line(int fd);
 char	*ft_strdupgnl(char *s1, int f);
 char	*ft_strjoingnl(char *s1, char const *s2);
 int		ft_strcmpgnl(const char *s1, const char *s2);
 char	*ft_substrgnl(char *s, unsigned int start, size_t len, int f);
 
-// Alocate a chunck of memory and put all bites to 0
-void	*ft_memalloc(size_t size);
 #endif

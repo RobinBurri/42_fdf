@@ -11,6 +11,9 @@
 # define HIGHT 1000
 # define TITLE "fdf"
 
+# define FT_ABS(X) (((X) < 0) ? (-(X)) : (X))
+# define INT_MAX 2147483647
+
 # define TEXT_COLOR			0xEAEAEA
 # define BACKGROUND			0x222222
 # define MENU_BACKGROUND	0x1E1E1E
@@ -23,7 +26,10 @@
 
 //ERROR MESSAGES
 # define FDF_INIT_ERR "Fdf initialization error"
-# define OPEN_ERR "MAP_FILE ERROR"
+# define MAP_INIT_ERR "Map initialization error"
+# define OPEN_ERR "Open map_file error"
+# define MAP_ERR "Map parsing error"
+# define USR_ERR "Usage: ./fdf map_file"
 # define IMG_INT_ERR "img initialization error"
 
 
@@ -38,15 +44,36 @@ typedef struct	s_mlx
 	int		endian;
 }				t_mlx;
 
+typedef struct			s_point
+{
+	int					x;
+	int					y;
+	int					z;
+	int					color;
+	struct s_point		*next;
+}						t_point;
 
-void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
-int	key_hook(int keycode, t_mlx *fdf);
+typedef struct			s_map
+{
+	int					width;
+	int					height;
+	int					*coords_arr;
+	int					*colors_arr;
+	int					z_min;
+	int					z_max;
+	int					z_range;
+}						t_map;
+
+
+int		key_hook(int keycode, t_mlx *fdf);
 t_mlx	*fdf_init(void);
+t_map	*map_init(void);
 void	send_err(char *s);
-int draw_line(t_mlx *fdf, int beginX, int beginY, int endX, int endY, int color);
-int draw_square(t_mlx *fdf, int beginX, int beginY, int length, int color);
-int draw_plain_square(t_mlx *fdf, int beginX, int beginY, int length, int color);
-int draw_triangle(t_mlx *fdf, int beginX, int beginY, int height, int color);
-int mouse_hook(int button, int x, int y, t_mlx *fdf);
-void my_pixel_put(t_mlx *fdf, int x, int y, int color);
+int		draw_line(t_mlx *fdf, t_point s, t_point f, int color);
+int		mouse_hook(int button, int x, int y, t_mlx *fdf);
+void	my_pixel_put(t_mlx *fdf, int x, int y, int color);
+int		read_map(int fd, t_point **pts_stack, t_map *map);
+t_point	*pop_pts(t_point **pts_stack);
+void	push_pts(t_point **pts_stack, t_point *new_pts);
+
 #endif

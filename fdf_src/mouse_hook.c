@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 09:50:45 by rburri            #+#    #+#             */
-/*   Updated: 2022/01/05 06:53:53 by rburri           ###   ########.fr       */
+/*   Updated: 2022/01/07 09:56:40 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ int mouse_hook(int button, int x, int y, t_mlx *fdf)
 	ft_putstr("\n");
 
 
-	draw_line(fdf, 500, 500, x, y, COLOR_FLAMINGO);
 	return (0);
 }

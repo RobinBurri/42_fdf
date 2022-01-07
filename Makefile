@@ -6,7 +6,7 @@
 #    By: rburri <rburri@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/03 08:06:22 by rburri            #+#    #+#              #
-#    Updated: 2022/01/04 09:52:34 by rburri           ###   ########.fr        #
+#    Updated: 2022/01/07 07:53:47 by rburri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,10 +37,10 @@ BIN = bin
 SOURCE =  $(SRC)/main.c\
 			$(SRC)/init.c\
 			$(SRC)/key_hook.c\
-			$(SRC)/my_mlx_pixel_put.c\
 			$(SRC)/utils.c\
-			$(SRC)/line.c\
+			$(SRC)/drawing.c\
 			$(SRC)/mouse_hook.c\
+			$(SRC)/read_map.c\
 			
 		
 OBJS = $(patsubst %,$(BIN)/%,$(notdir $(SOURCE:.c=.o)))

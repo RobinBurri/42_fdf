@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/17 14:58:55 by rburri            #+#    #+#             */
-/*   Updated: 2021/12/17 15:00:38 by rburri           ###   ########.fr       */
+/*   Created: 2022/01/07 09:16:45 by rburri            #+#    #+#             */
+/*   Updated: 2022/01/07 09:20:35 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+int	ft_isupper(int c)
 {
-	void	*ptr;
-
-	ptr = malloc(size);
-	if (!ptr)
-		return (NULL);
-	ft_bzero(ptr, size);
-	return (ptr);
+	return (c >= 'A' && c <= 'Z');
 }
