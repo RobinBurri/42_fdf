@@ -6,7 +6,7 @@
 #    By: rburri <rburri@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/25 13:29:27 by rburri            #+#    #+#              #
-#    Updated: 2022/01/07 09:48:23 by rburri           ###   ########.fr        #
+#    Updated: 2022/01/24 07:16:00 by rburri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,9 @@ FILES = 	ft_atoi.c ft_isspace.c ft_putchar.c ft_putnbr.c ft_putstr.c \
 			ft_isprint.c ft_strncmp.c ft_strlen.c ft_strlcpy.c \
 			ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c \
 			ft_memset.c ft_strchr.c ft_strdup.c ft_strlcat.c \
-			get_next_line_utils.c get_next_line.c ft_atoi_base.c\
-			ft_isupper.c ft_islower.c\
+			get_next_line.c ft_atoi_base.c ft_itoa_base.c\
+			ft_isupper.c ft_islower.c ft_memalloc.c\
+			ft_free_split.c
 
 			
 OBJECTS =  $(FILES:.c=.o)
@@ -44,7 +45,6 @@ all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	ar rc libft.a $(OBJECTS)
-	@make clean
 	@echo "$(GREEN)Make libft done$(RESET)"
 
 %.o: %.c

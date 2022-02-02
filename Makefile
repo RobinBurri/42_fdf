@@ -6,7 +6,7 @@
 #    By: rburri <rburri@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/03 08:06:22 by rburri            #+#    #+#              #
-#    Updated: 2022/01/07 07:53:47 by rburri           ###   ########.fr        #
+#    Updated: 2022/01/12 09:11:12 by rburri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,8 +39,10 @@ SOURCE =  $(SRC)/main.c\
 			$(SRC)/key_hook.c\
 			$(SRC)/utils.c\
 			$(SRC)/drawing.c\
-			$(SRC)/mouse_hook.c\
 			$(SRC)/read_map.c\
+			$(SRC)/stack_to_coods_array.c\
+			$(SRC)/project.c\
+			
 			
 		
 OBJS = $(patsubst %,$(BIN)/%,$(notdir $(SOURCE:.c=.o)))
@@ -56,10 +58,10 @@ help:
 	@echo "obj: $(OBJS)"
 
 ${NAME}:	${OBJS}
-			make -C ${LIBFT_DIR}/
-			cp ${LIBFT_DIR}/$(LIBFT_A) .
-			make -C ${MLX_DIR}/
-			cp ${MLX_DIR}/$(MLX_A) .
+			@make -C ${LIBFT_DIR}/
+			@cp ${LIBFT_DIR}/$(LIBFT_A) .
+			@make -C ${MLX_DIR}/
+			@cp ${MLX_DIR}/$(MLX_A) .
 			$(CC)  ${OBJS} $(LIBFT) $(MLX) -o $(NAME)
 			@echo "$(GREEN)$(NAME) sucessfully created$(RESET)"
 

@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/25 11:16:54 by rburri            #+#    #+#             */
-/*   Updated: 2022/01/22 15:09:38 by rburri           ###   ########.fr       */
+/*   Created: 2022/01/07 10:17:13 by rburri            #+#    #+#             */
+/*   Updated: 2022/01/07 10:21:08 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putchar(char c)
+void	*ft_memalloc(size_t size)
 {
-	return (write(1, &c, 1));
+	void	*ptr;
+
+	ptr = malloc(size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, size);
+	return (ptr);
 }

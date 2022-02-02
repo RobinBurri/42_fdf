@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 08:31:16 by rburri            #+#    #+#             */
-/*   Updated: 2022/01/07 09:59:19 by rburri           ###   ########.fr       */
+/*   Updated: 2022/01/11 12:33:45 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,11 @@ static void	free_split(char **split)
 static t_point	*new_pts(char *s)
 {
 	t_point	*pts;
-	char		**parts;
-
-	if (!(pts = (t_point *)ft_memalloc(sizeof(t_point))))
+	pts = (t_point *)ft_memalloc(sizeof(t_point));
+	if (!pts)
 		send_err(MAP_ERR);
-	if (!(parts = ft_split(s, ',')))
-		send_err(MAP_ERR);
-	pts->z = ft_atoi(parts[0]);
-	pts->color = parts[1] ? ft_atoi_base(parts[1], 16) : -1;
+	pts->z = ft_atoi(s);
 	pts->next = NULL;
-	// free_strsplit_arr(parts);
 	return (pts);
 }
 
@@ -71,4 +66,5 @@ int		read_map(int fd, t_point **pts_stack, t_map *map)
 		free(line);
 		map->height++;
 	}
+	return (0);
 }

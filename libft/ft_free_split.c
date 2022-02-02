@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mouse_hook.c                                       :+:      :+:    :+:   */
+/*   ft_free_split.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/04 09:50:45 by rburri            #+#    #+#             */
-/*   Updated: 2022/01/07 09:56:40 by rburri           ###   ########.fr       */
+/*   Created: 2022/01/24 07:12:19 by rburri            #+#    #+#             */
+/*   Updated: 2022/01/24 07:15:00 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "libft.h"
 
-int mouse_hook(int button, int x, int y, t_mlx *fdf)
-{	
-	ft_putstr("X: ");
-	ft_putnbr_fd(x, 1);
-	ft_putstr(" Y: ");
-	ft_putnbr_fd(y, 1);
-	ft_putstr("\n");
+void	ft_free_split(char **sp)
+{
+	int	i;
 
-
-	return (0);
+	i = 0;
+	while (sp[i])
+	{
+		free(sp[i]);
+		i++;
+	}
+	free(sp);
 }

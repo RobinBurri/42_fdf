@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 14:55:56 by rburri            #+#    #+#             */
-/*   Updated: 2022/01/06 08:24:21 by rburri           ###   ########.fr       */
+/*   Updated: 2022/01/12 09:03:08 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,24 @@ t_map	*map_init(void)
 	map->height = 0;
 	map->width = 0;
 	map->coords_arr = NULL;
-	map->colors_arr = NULL;
 	map->z_max = INT_MAX;
 	map->z_min = 0;
 	map->z_range = 0;
 	return (map);
+}
+
+t_camera	*camera_init(t_map *map)
+{
+	t_camera	*camera;
+
+	if (!(camera = (t_camera *)ft_memalloc(sizeof(t_camera))))
+		send_err(ERR_CAMERA_INIT);
+	camera->zoom = FT_MIN((WIDTH / map->width / 2), (HIGHT / map->height / 2));
+	camera->alpha = 0;
+	camera->beta = 0;
+	camera->gamma = 0;
+	camera->z_divisor = 1;
+	camera->x_offset = 0;
+	camera->y_offset = 0;
+	return (camera);
 }

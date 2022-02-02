@@ -1,16 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   line.c                                             :+:      :+:    :+:   */
+/*   drawing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 08:19:53 by rburri            #+#    #+#             */
-/*   Updated: 2022/01/06 08:10:41 by rburri           ###   ########.fr       */
+/*   Updated: 2022/02/02 08:41:23 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
+
+int		get_index(int x, int y, int width)
+{
+	return (y * width + x);
+}
+
+t_point	new_point(int x, int y, t_map *map)
+{
+	t_point	point;
+	int		index;
+
+	index = get_index(x, y, map->width);
+	point.x = x;
+	point.y = y;
+	point.z = map->coords_arr[index];
+	return (point);
+}
+
 
 void my_pixel_put(t_mlx *fdf, int x, int y, int color)
 {
@@ -20,10 +38,12 @@ void my_pixel_put(t_mlx *fdf, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-int draw_line(t_mlx *fdf, t_point s, t_point f, int color) {
+int draw_line(t_mlx *fdf, t_point s, t_point f) {
 	t_point delta;
 	t_point pixel;
+	t_point cur;
 	int pixels;
+	int error;
 	
 	delta.x = FT_ABS(f.x - s.x);
 	delta.y = FT_ABS(f.y - s.y);
@@ -33,12 +53,38 @@ int draw_line(t_mlx *fdf, t_point s, t_point f, int color) {
 	delta.x /= pixels;
 	delta.y /= pixels;
 	while (pixels) {
-		my_pixel_put(fdf, pixel.x, pixel.y, color);
+		my_pixel_put(fdf, pixel.x, pixel.y, 0xFFFFFF);
 		pixel.x += delta.x;
 		pixel.y += delta.y;
 		--pixels;
 	}
 	return (0);
+}
+
+void		draw(t_map *map, t_mlx *fdf)
+{
+	int		x;
+	int		y;
+
+	// draw_background(fdf);
+	y = 0;
+	while (y < map->height)
+	{
+		x = 0;
+		while (x < map->width)
+		{
+			if (x != map->width - 1)
+				draw_line(fdf, project(new_point(x, y, map), map),
+					project(new_point(x + 1, y, map), map));
+			if (y != map->height - 1)
+				draw_line(fdf, project(new_point(x, y, map), map),
+					project(new_point(x, y + 1, map), map));
+			x++;
+		}
+		y++;
+	}
+	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img, 0, 0);
+	// print_menu(fdf);
 }
 
 // int draw_square(t_mlx *fdf, int beginX, int beginY, int length, int color)
