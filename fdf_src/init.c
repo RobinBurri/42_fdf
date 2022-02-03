@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 14:55:56 by rburri            #+#    #+#             */
-/*   Updated: 2022/01/12 09:03:08 by rburri           ###   ########.fr       */
+/*   Updated: 2022/02/03 09:12:08 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 t_mlx	*fdf_init(void)
 {
-	t_mlx	*fdf;
+	t_mlx	*data;
 	
-	fdf = (t_mlx *)ft_memalloc(sizeof(t_mlx));
-	if (!fdf)
+	data = (t_mlx *)ft_memalloc(sizeof(t_mlx));
+	if (!data)
 		send_err(FDF_INIT_ERR);
-	fdf->mlx = mlx_init();
-	if (!fdf->mlx)
+	data->mlx = mlx_init();
+	if (!data->mlx)
 		send_err(FDF_INIT_ERR);
-	fdf->win = mlx_new_window(fdf->mlx, WIDTH, HIGHT, TITLE);
-	if (!fdf->win)
+	data->win = mlx_new_window(data->mlx, WIDTH, HIGHT, TITLE);
+	if (!data->win)
 		send_err(FDF_INIT_ERR);
-	fdf->img = mlx_new_image(fdf->mlx, HIGHT, WIDTH);
-	fdf->addr = mlx_get_data_addr(fdf->img, &fdf->bit_per_pixel, &fdf->line_length, &fdf->endian);
+	data->img = mlx_new_image(data->mlx, HIGHT, WIDTH);
+	data->addr = mlx_get_data_addr(data->img, &data->bit_per_pixel, &data->line_length, &data->endian);
 		
-	return (fdf);
+	return (data);
 }
 
 t_map	*map_init(void)

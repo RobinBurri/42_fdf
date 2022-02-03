@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 15:16:01 by rburri            #+#    #+#             */
-/*   Updated: 2022/01/12 09:36:28 by rburri           ###   ########.fr       */
+/*   Updated: 2022/02/03 09:59:04 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,25 @@
 int main(int ac, char *av[])
 {
 	int fd;
-	t_mlx	*fdf;
+	t_mlx	*data;
 	t_point *pts_stack;
 	t_map *map;
+	t_point a;
+	t_point b;
+	t_point c;
+	t_point d;
+
+	a.x = 50;
+	a.y = 50;
+	
+	b.x = 50;
+	b.y = 100;
+	
+	c.x = 100;
+	c.y = 100;
+	
+	d.x = 100;
+	d.y = 50;
 
 	pts_stack = NULL;
 	int errno = 0;
@@ -28,22 +44,26 @@ int main(int ac, char *av[])
 	if (fd <= 0)
 		send_err(OPEN_ERR);
 	map = map_init();
-	fdf = fdf_init();
+	data = fdf_init();
 	if (read_map(fd, &pts_stack, map) != 0)
 		send_err(MAP_ERR);
-	// ft_print_stack(pts_stack);
-	printf("height: %d\n", map->height);
-	printf("width: %d\n", map->width);
 	stack_to_coords_array(&pts_stack, map);
-	map->camera = camera_init(map);
-	printf("%d\n", map->camera->zoom);
-	draw(map, fdf);
-	// draw_line(fdf, s, f);
-	// draw_square(fdf, (HIGHT/2 - 50), (WIDTH/2 - 50), 100, COLOR_BRICK_RED);
-	// mlx_hook(fdf->win, 2, 0, key_hook, &fdf);
-	// mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img, 0, 0);
+	map->camera = camera_init(map); 
+	// draw(map, data);
+	draw_line(data, a, b);
+	// draw_line(data, b, c);
+	// draw_line(data, a, d);
+	// draw_line(data, d, c);
+	// draw_line(data, b, a);
+	// draw_line(data, c, b);
+	// draw_line(data, d, a);
+	// draw_line(data, c, d);
 	
-	mlx_loop(fdf->mlx);
+	mlx_hook(data->win, 2, 0, key_hook, &data);
+	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
+	
+	mlx_loop(data->mlx);
 	ft_free_stack(pts_stack);
+	free(data->mlx);
 	return  (0);
 }

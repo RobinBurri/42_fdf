@@ -3,28 +3,20 @@
 
 # include "libft/libft.h"
 # include "mlx/mlx.h"
-# include "key_macros.h"
 # include <math.h>
 # include <stdio.h>
 
 # define WIDTH 1000
 # define HIGHT 1000
 # define TITLE "fdf"
+# define ESC_CODE 53
 
 # define FT_ABS(X) (((X) < 0) ? (-(X)) : (X))
 # define FT_MIN(A, B) (((A) < (B)) ? (A) : (B))
 # define FT_MAX(A, B) (((A) > (B)) ? (A) : (B))
 # define INT_MAX 2147483647
 
-# define TEXT_COLOR			0xEAEAEA
-# define BACKGROUND			0x222222
-# define MENU_BACKGROUND	0x1E1E1E
 
-# define COLOR_DISCO		0x9A1F6A
-# define COLOR_BRICK_RED	0xC2294E
-# define COLOR_FLAMINGO		0xEC4B27
-# define COLOR_JAFFA		0xEF8633
-# define COLOR_SAFFRON		0xF3AF3D
 
 //ERROR MESSAGES
 # define FDF_INIT_ERR "Fdf initialization error"
@@ -36,15 +28,8 @@
 # define CONVERT_ARRAY_ERR "Error at converting stack to array"
 # define ERR_CAMERA_INIT "Error at camera init"
 
-typedef enum
-{
-	ISO,
-	PARALLEL
-}	t_projection;
-
 typedef struct			s_camera
 {
-	t_projection		projection;
 	int					zoom;
 	double				alpha;
 	double				beta;
@@ -85,13 +70,13 @@ typedef struct			s_map
 }						t_map;
 
 
-int		key_hook(int keycode, t_mlx *fdf);
+int		key_hook(int keycode, t_mlx *data);
 t_mlx	*fdf_init(void);
 t_map	*map_init(void);
 t_camera	*camera_init(t_map *map);
 t_point		project(t_point p, t_map *map);
 int		read_map(int fd, t_point **pts_stack, t_map *map);
-int		draw_line(t_mlx *fdf, t_point s, t_point f);
+void	draw_line(t_mlx *fdf, t_point s, t_point f);
 void	my_pixel_put(t_mlx *fdf, int x, int y, int color);
 //UTILS
 void	send_err(char *s);

@@ -6,24 +6,18 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 14:30:20 by rburri            #+#    #+#             */
-/*   Updated: 2022/01/05 06:14:51 by rburri           ###   ########.fr       */
+/*   Updated: 2022/02/03 09:12:57 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
-int	key_hook(int keycode, t_mlx *fdf)
+int	key_hook(int keycode, t_mlx *data)
 {
-	if (keycode == 53)
+	if (keycode == ESC_CODE)
 	{
-		mlx_destroy_window(fdf->mlx, fdf->win);
+		mlx_destroy_window(data->mlx, data->win);
 		exit (0);
-	}
-	else
-	{
-		ft_putstr("Hello from key_hook no: ");
-		ft_putnbr_fd(keycode, 1);
-		ft_putstr("\n");	
 	}
 		return (0);
 }

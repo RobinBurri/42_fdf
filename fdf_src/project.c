@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 09:07:35 by rburri            #+#    #+#             */
-/*   Updated: 2022/01/12 09:41:44 by rburri           ###   ########.fr       */
+/*   Updated: 2022/02/03 09:16:22 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,7 @@ t_point		project(t_point p, t_map *map)
 	rotate_x(&p.y, &p.z, map->camera->alpha);
 	rotate_y(&p.x, &p.z, map->camera->beta);
 	rotate_z(&p.x, &p.y, map->camera->gamma);
-	if (map->camera->projection == ISO)
-		iso(&p.x, &p.y, p.z);
+	iso(&p.x, &p.y, p.z);
 	p.x += (WIDTH / 2 + map->camera->x_offset);
 	p.y += (HIGHT + map->height * map->camera->zoom) / 2
 												+ map->camera->y_offset;
