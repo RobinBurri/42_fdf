@@ -86,6 +86,7 @@ void	ft_print_stack(t_point *stack);
 void	ft_free_stack(t_point *stack);
 void	stack_to_coords_array(t_point **pts_stack, t_map *map);
 void	draw(t_map *map, t_mlx *fdf);
+void	ft_free_map(t_map *map);
 
 
 #endif

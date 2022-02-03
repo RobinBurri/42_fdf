@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 08:19:53 by rburri            #+#    #+#             */
-/*   Updated: 2022/02/03 10:48:45 by rburri           ###   ########.fr       */
+/*   Updated: 2022/02/03 11:37:10 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,31 +38,31 @@ void my_pixel_put(t_mlx *fdf, int x, int y, int color)
 	*(unsigned int*)pixel = color;
 }
 
-void draw_line(t_mlx *fdf, t_point f, t_point s) 
+void draw_line(t_mlx *fdf, t_point p1, t_point p2) 
 {
 	t_point delta;
 	t_point sign;
-	t_point cur;
+	t_point current;
 	int 	error[2];
 	
-	delta.x = FT_ABS(s.x - f.x);
-	delta.y = FT_ABS(s.y - f.y);
-	sign.x = f.x < s.x ? 1 : -1;
-	sign.y = f.y < s.y ? 1 : -1;
-	error[0] = delta.x - delta.y;
-	cur = f;
-	while (cur.x != s.x || cur.y != s.y) 
+	delta.x = FT_ABS(p2.x - p1.x);
+	delta.y = FT_ABS(p2.y - p1.y);
+	sign.x = p1.x < p2.x ? 1 : -1;
+	sign.y = p1.y < p2.y ? 1 : -1;
+	error[0] = delta.x + delta.y;
+	current = p1;
+	while (current.x != p2.x || current.y != p2.y) 
 	{
-		my_pixel_put(fdf, cur.x, cur.y, 0xFFFFFF);
+		my_pixel_put(fdf, current.x, current.y, 0xFFFFFF);
 		if ((error[1] == error[0] * 2) > -delta.y)
 		{
 			error[0] -= delta.y;
-			cur.x += sign.x;
+			current.x += sign.x;
 		}
 		if (error[1] < delta.x)
 		{
 			error[0] += delta.x;
-			cur.y += sign.y;
+			current.y += sign.y;
 		}
 	}
 }

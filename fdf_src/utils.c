@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 15:19:10 by rburri            #+#    #+#             */
-/*   Updated: 2022/01/11 12:29:50 by rburri           ###   ########.fr       */
+/*   Updated: 2022/02/03 11:23:25 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,4 @@ void ft_print_stack(t_point *stack)
 			tmp = tmp->next;
 		}
 		free(tmp);
-}
-
-void ft_free_stack(t_point *stack)
-{
-		t_point *tmp;
-		tmp = stack;
-		while (tmp != NULL)
-		{
-			tmp = stack->next;
-			free(stack);
-			stack = tmp;
-		}
 }

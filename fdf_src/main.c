@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 15:16:01 by rburri            #+#    #+#             */
-/*   Updated: 2022/02/03 09:59:04 by rburri           ###   ########.fr       */
+/*   Updated: 2022/02/03 11:38:12 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ int main(int ac, char *av[])
 	mlx_loop(data->mlx);
 	ft_free_stack(pts_stack);
 	free(data->mlx);
+	ft_free_map(map);
 	return  (0);
 }

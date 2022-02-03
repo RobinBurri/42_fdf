@@ -6,7 +6,7 @@
 #    By: rburri <rburri@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/03 08:06:22 by rburri            #+#    #+#              #
-#    Updated: 2022/01/12 09:11:12 by rburri           ###   ########.fr        #
+#    Updated: 2022/02/03 11:51:52 by rburri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ SOURCE =  $(SRC)/main.c\
 			$(SRC)/read_map.c\
 			$(SRC)/stack_to_coods_array.c\
 			$(SRC)/project.c\
+			$(SRC)/free.c\
 			
 			
 		
