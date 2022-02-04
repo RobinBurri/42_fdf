@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 08:31:16 by rburri            #+#    #+#             */
-/*   Updated: 2022/01/11 12:33:45 by rburri           ###   ########.fr       */
+/*   Updated: 2022/02/04 08:33:04 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	free_split(char **split)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (split[i])
@@ -22,10 +22,10 @@ static void	free_split(char **split)
 	free(split[i]);
 }
 
-
 static t_point	*new_pts(char *s)
 {
 	t_point	*pts;
+
 	pts = (t_point *)ft_memalloc(sizeof(t_point));
 	if (!pts)
 		send_err(MAP_ERR);
@@ -34,7 +34,7 @@ static t_point	*new_pts(char *s)
 	return (pts);
 }
 
-static void	parse_line(char **coords_line, t_point **pts_stack,t_map *map)
+static void	parse_line(char **coords_line, t_point **pts_stack, t_map *map)
 {
 	int	width;
 
@@ -50,8 +50,7 @@ static void	parse_line(char **coords_line, t_point **pts_stack,t_map *map)
 		send_err(MAP_ERR);
 }
 
-
-int		read_map(int fd, t_point **pts_stack, t_map *map)
+int	read_map(int fd, t_point **pts_stack, t_map *map)
 {
 	char	*line;
 	char	**coords_line;
