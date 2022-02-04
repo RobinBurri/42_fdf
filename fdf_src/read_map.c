@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 08:31:16 by rburri            #+#    #+#             */
-/*   Updated: 2022/02/04 08:33:04 by rburri           ###   ########.fr       */
+/*   Updated: 2022/02/04 11:50:17 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ int	read_map(int fd, t_point **pts_stack, t_map *map)
 	char	*line;
 	char	**coords_line;
 
-	while ((line = get_next_line(fd)) != NULL)
+	line = get_next_line(fd);
+	while (line != NULL)
 	{
 		coords_line = ft_split(line, ' ');
 		if (!coords_line)
@@ -64,6 +65,7 @@ int	read_map(int fd, t_point **pts_stack, t_map *map)
 		free_split(coords_line);
 		free(line);
 		map->height++;
+		line = get_next_line(fd);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 15:16:01 by rburri            #+#    #+#             */
-/*   Updated: 2022/02/04 09:37:09 by rburri           ###   ########.fr       */
+/*   Updated: 2022/02/04 11:14:26 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int ac, char *av[])
 		send_err(OPEN_ERR);
 	data = fdf_init();
 	data->map = map_init();
-	if (read_map(fd, &pts_stack, data->map) != 0)
+	if (read_map(fd, &pts_stack, data->map) == -1)
 		send_err(MAP_ERR);
 	stack_to_coords_array(&pts_stack, data->map);
 	draw(data);

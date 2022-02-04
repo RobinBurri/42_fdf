@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 09:07:35 by rburri            #+#    #+#             */
-/*   Updated: 2022/02/04 10:35:05 by rburri           ###   ########.fr       */
+/*   Updated: 2022/02/04 11:41:49 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,18 @@ static void	iso(int *x, int *y, int z)
 t_point	project(t_point p, t_map *map)
 {
 	int	zoom;
+	int	tmp;
 
-	zoom = FT_MIN((WIDTH / map->width / 2), (HIGHT / map->height / 2));
+	tmp = FT_MIN((WIDTH / map->width / 2), (HIGHT / map->height / 2));
+	zoom = FT_MIN(tmp, (HIGHT / map->z_range / 2));
 	p.x *= zoom;
 	p.y *= zoom;
-	if (map->z_range <= zoom)
-		p.z *= zoom;
-	else
-		p.z *= (HIGHT / map->z_range / 2);
+	p.z *= zoom;
 	iso(&p.x, &p.y, p.z);
 	p.x += (WIDTH / 2) - (zoom * map->width / 2) + (map->height * zoom / 2);
-	p.y += (HIGHT / 2) - (zoom * map->height / 2);
+	if ((HIGHT / map->z_range / 2) > zoom)
+		p.y += (HIGHT / 2) - (zoom * map->height / 2);
+	else
+		p.y += (HIGHT / 2) - (zoom * map->z_range / 20);
 	return (p);
 }

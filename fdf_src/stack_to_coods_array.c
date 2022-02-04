@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 13:16:19 by rburri            #+#    #+#             */
-/*   Updated: 2022/02/04 08:31:12 by rburri           ###   ########.fr       */
+/*   Updated: 2022/02/04 11:52:22 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	stack_to_coords_array(t_point **pts_stack, t_map *map)
 	map->coords_arr = (int *)ft_memalloc(arr_size);
 	if (!map->coords_arr)
 		send_err(CONVERT_ARRAY_ERR);
-	while ((tmp = pop_pts(pts_stack)) && i >= 0)
+	tmp = pop_pts(pts_stack);
+	while (tmp && i >= 0)
 	{
 		map->coords_arr[i] = tmp->z;
 		if (tmp->z > map->z_max)
@@ -32,6 +33,7 @@ void	stack_to_coords_array(t_point **pts_stack, t_map *map)
 			map->z_min = tmp->z;
 		i--;
 		free(tmp);
+		tmp = pop_pts(pts_stack);
 	}
 	map->z_range = map->z_max - map->z_min;
 }

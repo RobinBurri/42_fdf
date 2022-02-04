@@ -6,7 +6,7 @@
 #    By: rburri <rburri@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/03 08:06:22 by rburri            #+#    #+#              #
-#    Updated: 2022/02/03 11:51:52 by rburri           ###   ########.fr        #
+#    Updated: 2022/02/04 11:40:09 by rburri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ SOURCE =  $(SRC)/main.c\
 			$(SRC)/utils.c\
 			$(SRC)/drawing.c\
 			$(SRC)/read_map.c\
+			$(SRC)/draw_line.c\
 			$(SRC)/stack_to_coods_array.c\
 			$(SRC)/project.c\
 			$(SRC)/free.c\
