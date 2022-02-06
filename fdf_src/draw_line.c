@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:37:35 by rburri            #+#    #+#             */
-/*   Updated: 2022/02/04 11:45:59 by rburri           ###   ########.fr       */
+/*   Updated: 2022/02/06 18:11:38 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	draw_line(t_mlx *fdf, t_point p1, t_point p2)
 	err = find_err(delta.x, delta.y);
 	while (p1.x != p2.x || p1.y != p2.y)
 	{
-		my_pixel_put(fdf, p1.x, p1.y, 0xFFFFFF);
+		my_pixel_put(fdf, p1.x, p1.y, 0x00FF00);
 		e2 = err;
 		if (e2 > -delta.x)
 		{

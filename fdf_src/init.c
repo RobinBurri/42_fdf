@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 14:55:56 by rburri            #+#    #+#             */
-/*   Updated: 2022/02/04 10:15:33 by rburri           ###   ########.fr       */
+/*   Updated: 2022/02/06 18:11:59 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ t_mlx	*fdf_init(void)
 	data->mlx = mlx_init();
 	if (!data->mlx)
 		send_err(FDF_INIT_ERR);
-	data->win = mlx_new_window(data->mlx, WIDTH, HIGHT, TITLE);
+	data->win = mlx_new_window(data->mlx, WIDTH, HEIGHT, TITLE);
 	if (!data->win)
 		send_err(FDF_INIT_ERR);
-	data->img = mlx_new_image(data->mlx, HIGHT, WIDTH);
+	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	data->addr = mlx_get_data_addr(data->img, &data->bit_per_pixel,
 			&data->line_length, &data->endian);
 	return (data);

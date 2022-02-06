@@ -7,7 +7,7 @@
 # include <stdio.h>
 
 # define WIDTH 1000
-# define HIGHT 1000
+# define HEIGHT 1000
 # define TITLE "fdf"
 # define ESC_CODE 53
 # define P_CODE 35

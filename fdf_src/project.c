@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 09:07:35 by rburri            #+#    #+#             */
-/*   Updated: 2022/02/04 12:07:03 by rburri           ###   ########.fr       */
+/*   Updated: 2022/02/06 18:12:13 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ t_point	project(t_point p, t_map *map)
 	int	zoom;
 	int	tmp;
 
-	tmp = FT_MIN((WIDTH / map->width / 2), (HIGHT / map->height / 2));
+	tmp = FT_MIN((WIDTH / map->width / 2), (HEIGHT / map->height / 2));
 	if (map->z_range > 0)
-		zoom = FT_MIN(tmp, (HIGHT / map->z_range / 2));
+		zoom = FT_MIN(tmp, (HEIGHT / map->z_range / 2));
 	else
 		zoom = tmp;
 	p.x *= zoom;
@@ -38,9 +38,9 @@ t_point	project(t_point p, t_map *map)
 	p.z *= zoom;
 	iso(&p.x, &p.y, p.z);
 	p.x += (WIDTH / 2) - (zoom * map->width / 2) + (map->height * zoom / 2);
-	if (map->z_range > 0 && (HIGHT / map->z_range / 2) > zoom)
-		p.y += (HIGHT / 2) - (zoom * map->height / 2);
+	if (map->z_range > 0 && (HEIGHT / map->z_range / 2) > zoom)
+		p.y += (HEIGHT / 2) - (zoom * map->height / 2);
 	else
-		p.y += (HIGHT / 2) - (zoom * map->z_range / 20);
+		p.y += (HEIGHT / 2) - (zoom * map->z_range / 20);
 	return (p);
 }
