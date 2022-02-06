@@ -6,7 +6,7 @@
 #    By: rburri <rburri@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/03 08:06:22 by rburri            #+#    #+#              #
-#    Updated: 2022/02/04 11:40:09 by rburri           ###   ########.fr        #
+#    Updated: 2022/02/06 18:25:12 by rburri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,8 @@ MLX			= -L. -lmlx -framework OpenGL -framework AppKit
 SRC = fdf_src
 
 BIN = bin
+
+$(shell mkdir -p $(BIN))
 
 SOURCE =  $(SRC)/main.c\
 			$(SRC)/init.c\

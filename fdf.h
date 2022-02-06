@@ -10,7 +10,6 @@
 # define HEIGHT 1000
 # define TITLE "fdf"
 # define ESC_CODE 53
-# define P_CODE 35
 
 # define FT_MIN(A, B) (((A) < (B)) ? (A) : (B))
 
