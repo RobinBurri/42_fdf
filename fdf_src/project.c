@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 09:07:35 by rburri            #+#    #+#             */
-/*   Updated: 2022/02/06 18:12:13 by rburri           ###   ########.fr       */
+/*   Updated: 2022/02/07 11:28:42 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,12 @@ t_point	project(t_point p, t_map *map)
 	int	zoom;
 	int	tmp;
 
-	tmp = FT_MIN((WIDTH / map->width / 2), (HEIGHT / map->height / 2));
-	if (map->z_range > 0)
-		zoom = FT_MIN(tmp, (HEIGHT / map->z_range / 2));
+	if ((WIDTH / map->width / 2) < (HEIGHT / map->height / 2))
+		tmp = (WIDTH / map->width / 2);
+	else
+		tmp = (HEIGHT / map->height / 2);
+	if (map->z_range > 0 && (HEIGHT / map->z_range / 2) < tmp)
+		zoom = (HEIGHT / map->z_range / 2);
 	else
 		zoom = tmp;
 	p.x *= zoom;

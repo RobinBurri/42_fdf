@@ -6,7 +6,7 @@
 #    By: rburri <rburri@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/03 08:06:22 by rburri            #+#    #+#              #
-#    Updated: 2022/02/06 18:25:12 by rburri           ###   ########.fr        #
+#    Updated: 2022/02/07 11:29:42 by rburri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ SOURCE =  $(SRC)/main.c\
 OBJS = $(patsubst %,$(BIN)/%,$(notdir $(SOURCE:.c=.o)))
 
 $(BIN)/%.o : $(SRC)/%.c
-				$(CC) $(CFLAGS) -c $< -o $@
+				$(CC) $(FLAGS) -c $< -o $@
 
 all: $(NAME)
 

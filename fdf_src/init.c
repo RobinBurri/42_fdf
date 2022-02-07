@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 14:55:56 by rburri            #+#    #+#             */
-/*   Updated: 2022/02/06 18:11:59 by rburri           ###   ########.fr       */
+/*   Updated: 2022/02/07 09:27:56 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ t_mlx	*fdf_init(void)
 	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	data->addr = mlx_get_data_addr(data->img, &data->bit_per_pixel,
 			&data->line_length, &data->endian);
+	data->stack = NULL;
 	return (data);
 }
 

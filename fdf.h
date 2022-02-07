@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/07 11:22:59 by rburri            #+#    #+#             */
+/*   Updated: 2022/02/07 12:18:11 by rburri           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FDF_H
 # define FDF_H
 
@@ -11,19 +23,18 @@
 # define TITLE "fdf"
 # define ESC_CODE 53
 
-# define FT_MIN(A, B) (((A) < (B)) ? (A) : (B))
-
 //ERROR MESSAGES
 # define FDF_INIT_ERR "Fdf initialization error"
 # define MAP_INIT_ERR "Map initialization error"
 # define OPEN_ERR "Open map_file error"
+# define CLOSE_ERR "Close map_file error"
 # define MAP_ERR "Map parsing error"
 # define USR_ERR "Usage: ./fdf map_file"
 # define IMG_INT_ERR "img initialization error"
 # define CONVERT_ARRAY_ERR "Error at converting stack to array"
 # define ERR_CAMERA_INIT "Error at camera init"
 
-typedef struct	s_point
+typedef struct s_point
 {
 	int				x;
 	int				y;
@@ -31,7 +42,7 @@ typedef struct	s_point
 	struct s_point	*next;
 }			t_point;
 
-typedef struct		s_map
+typedef struct s_map
 {
 	int		width;
 	int		height;
@@ -41,7 +52,7 @@ typedef struct		s_map
 	int		z_range;
 }					t_map;
 
-typedef struct	s_mlx
+typedef struct s_mlx
 {
 	void	*mlx;
 	void	*win;
@@ -51,6 +62,7 @@ typedef struct	s_mlx
 	int		line_length;
 	int		endian;
 	t_map	*map;
+	t_point	*stack;
 }				t_mlx;
 
 t_point	*pop_pts(t_point **pts_stack);
@@ -64,7 +76,6 @@ void	my_pixel_put(t_mlx *fdf, int x, int y, int color);
 void	send_err(char *s);
 void	push_pts(t_point **pts_stack, t_point *new_pts);
 void	ft_print_stack(t_point *stack);
-void	ft_free_stack(t_point *stack);
 void	stack_to_coords_array(t_point **pts_stack, t_map *map);
 void	draw(t_mlx *data);
 void	ft_free_map(t_map *map);

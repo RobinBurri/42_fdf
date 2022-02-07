@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 15:19:10 by rburri            #+#    #+#             */
-/*   Updated: 2022/02/04 08:30:27 by rburri           ###   ########.fr       */
+/*   Updated: 2022/02/07 09:11:40 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,4 @@ t_point	*pop_pts(t_point **pts_stack)
 		*pts_stack = (*pts_stack)->next;
 	}
 	return (pts);
-}
-
-void	ft_print_stack(t_point *stack)
-{
-	t_point	*tmp;
-
-	tmp = stack;
-	while (tmp != NULL)
-	{	
-		printf("%d\n", tmp->z);
-		tmp = tmp->next;
-	}
-	free(tmp);
 }

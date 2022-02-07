@@ -6,21 +6,11 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 08:31:16 by rburri            #+#    #+#             */
-/*   Updated: 2022/02/04 11:50:17 by rburri           ###   ########.fr       */
+/*   Updated: 2022/02/07 08:31:54 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
-
-static void	free_split(char **split)
-{
-	int	i;
-
-	i = 0;
-	while (split[i])
-		free(split[i++]);
-	free(split[i]);
-}
 
 static t_point	*new_pts(char *s)
 {
@@ -54,6 +44,7 @@ int	read_map(int fd, t_point **pts_stack, t_map *map)
 {
 	char	*line;
 	char	**coords_line;
+	int		res;
 
 	line = get_next_line(fd);
 	while (line != NULL)
@@ -62,10 +53,13 @@ int	read_map(int fd, t_point **pts_stack, t_map *map)
 		if (!coords_line)
 			send_err(MAP_ERR);
 		parse_line(coords_line, pts_stack, map);
-		free_split(coords_line);
+		ft_free_split(coords_line);
 		free(line);
 		map->height++;
 		line = get_next_line(fd);
 	}
+	res = close(fd);
+	if (res == -1)
+		send_err(CLOSE_ERR);
 	return (0);
 }
