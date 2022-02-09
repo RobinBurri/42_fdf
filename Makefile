@@ -6,7 +6,7 @@
 #    By: rburri <rburri@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/03 08:06:22 by rburri            #+#    #+#              #
-#    Updated: 2022/02/07 11:29:42 by rburri           ###   ########.fr        #
+#    Updated: 2022/02/09 16:57:41 by rburri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,9 +45,7 @@ SOURCE =  $(SRC)/main.c\
 			$(SRC)/draw_line.c\
 			$(SRC)/stack_to_coods_array.c\
 			$(SRC)/project.c\
-			$(SRC)/free.c\
-			
-			
+					
 		
 OBJS = $(patsubst %,$(BIN)/%,$(notdir $(SOURCE:.c=.o)))
 

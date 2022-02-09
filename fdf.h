@@ -6,7 +6,7 @@
 /*   By: rburri <rburri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 11:22:59 by rburri            #+#    #+#             */
-/*   Updated: 2022/02/07 12:18:11 by rburri           ###   ########.fr       */
+/*   Updated: 2022/02/09 17:19:37 by rburri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,12 @@ typedef struct s_mlx
 	int		bit_per_pixel;
 	int		line_length;
 	int		endian;
-	t_map	*map;
-	t_point	*stack;
 }				t_mlx;
 
 t_point	*pop_pts(t_point **pts_stack);
 t_point	project(t_point p, t_map *map);
-t_mlx	*fdf_init(void);
-t_map	*map_init(void);
+void	fdf_init(t_mlx *data);
+void	map_init(t_map *map);
 int		key_hook(int keycode, t_mlx *data);
 int		read_map(int fd, t_point **pts_stack, t_map *map);
 void	draw_line(t_mlx *fdf, t_point s, t_point f);
@@ -77,7 +75,7 @@ void	send_err(char *s);
 void	push_pts(t_point **pts_stack, t_point *new_pts);
 void	ft_print_stack(t_point *stack);
 void	stack_to_coords_array(t_point **pts_stack, t_map *map);
-void	draw(t_mlx *data);
-void	ft_free_map(t_map *map);
+void	draw(t_mlx *data, t_map *map);
+int		close_win(t_mlx *data);
 
 #endif
